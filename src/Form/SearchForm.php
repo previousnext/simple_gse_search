@@ -4,7 +4,11 @@ namespace Drupal\simple_gse_search\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
+/**
+ * Defines a form for performing a simple redirect to display search results.
+ */
 class SearchForm extends FormBase {
   /**
    * {@inheritdoc}
@@ -20,23 +24,22 @@ class SearchForm extends FormBase {
     $form['s'] = [
       '#type' => 'textfield',
       '#title' => t('Search'),
-      '#default_value' => isset($_GET['s']) ? $_GET['s'] : '',
-      '#attributes' => ['placeholder' => 'Search site...', 'class' => ['SearchForm-input']],
+      '#default_value' => $form_state->getValue('s', ''),
+      '#attributes' => [
+        'placeholder' => $this->t('Search site...'),
+        'class' => ['SearchForm-input'],
+      ],
       '#theme_wrappers' => [],
       '#size' => NULL,
     ];
 
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => 'go',
-      '#name' => '',
+      '#value' => $this->t('go'),
       '#attributes' => ['class' => ['SearchForm-submit']],
     ];
 
     $form['#attributes'] = ['class' => ['SearchForm']];
-    $form['#action'] = '/search';
-    $form['#method'] = 'get';
-
     return $form;
   }
 
@@ -44,7 +47,11 @@ class SearchForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Intentionally leave this empty.
+    $form_state->setRedirectUrl(Url::fromRoute('simple_gse_search.search_page', [], [
+      'query' => [
+        's' => $form_state->getValue('s'),
+      ],
+    ]));
   }
 
 }
