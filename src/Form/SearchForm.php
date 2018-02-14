@@ -10,6 +10,7 @@ use Drupal\Core\Url;
  * Defines a form for performing a simple redirect to display search results.
  */
 class SearchForm extends FormBase {
+
   /**
    * {@inheritdoc}
    */
@@ -24,7 +25,7 @@ class SearchForm extends FormBase {
     $form['s'] = [
       '#type' => 'textfield',
       '#title' => t('Search'),
-      '#default_value' => $form_state->getValue('s', ''),
+      '#default_value' => $form_state->getValue('s', $this->getRequest()->query->get('s', '')),
       '#attributes' => [
         'placeholder' => $this->t('Search site...'),
         'class' => ['SearchForm-input'],

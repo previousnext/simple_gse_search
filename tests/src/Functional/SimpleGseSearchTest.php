@@ -40,6 +40,7 @@ class SimpleGseSearchTest extends BrowserTestBase {
       ],
     ])->setAbsolute()->toString();
     $this->assertEquals($url, $this->getSession()->getCurrentUrl());
+    $this->assertSession()->fieldValueEquals('s', 'bananas');
   }
 
 }
