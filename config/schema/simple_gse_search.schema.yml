@@ -4,5 +4,5 @@ simple_gse_search.settings:
   label: 'Simple GSE Search settings'
   mapping:
     cx:
-     label: 'Google Search ID',
+     label: 'Google Search ID'
      type: 'string'
