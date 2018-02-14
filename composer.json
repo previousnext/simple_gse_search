@@ -1,7 +1,7 @@
 {
     "name": "drupal/simple_gse_search",
     "type": "drupal-module",
-    "version": "1.0.0-alpha2",
+    "version": "1.0.0-alpha3",
     "description": "Provides basic integration with Google Custom Search Engine",
     "license": "GPL-2.0+",
     "authors": [
