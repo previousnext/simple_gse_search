@@ -49,7 +49,11 @@ class SearchPage extends ControllerBase {
         'queryParameterName' => "s",
         'linktarget' => '_parent'
       ],
-      '#value' => 'Please make sure javascript is enabled to see the search results.',
+      'message' => [
+        '#type' => 'html_tag',
+        '#tag' => 'noscript',
+        '#value' => 'Please make sure javascript is enabled to see the search results.',
+      ],
       '#attached' => [
         'library' => ['simple_gse_search/search'],
         'drupalSettings' => [
