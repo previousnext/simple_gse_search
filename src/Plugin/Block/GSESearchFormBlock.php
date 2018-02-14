@@ -23,7 +23,8 @@ class GSESearchFormBlock extends BlockBase implements ContainerFactoryPluginInte
    *
    * @var \Drupal\Core\Form\FormBuilderInterface
    */
-  protected $fomBuilder;
+  protected $formBuilder;
+
   /**
    * Constructs a new GSESearchFormBlock object.
    *
@@ -57,7 +58,7 @@ class GSESearchFormBlock extends BlockBase implements ContainerFactoryPluginInte
    * {@inheritdoc}
    */
   public function build() {
-    return $this->fomBuilder->getForm(SearchForm::class);
+    return $this->formBuilder->getForm(SearchForm::class);
   }
 
 }
