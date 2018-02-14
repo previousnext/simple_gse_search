@@ -1,5 +1,5 @@
 {
-    "name": "colab-coop/simple_gse_search",
+    "name": "drupal/simple_gse_search",
     "type": "drupal-module",
     "version": "8.x-1.0",
     "description": "Provides basic integration with Google Custom Search Engine",
