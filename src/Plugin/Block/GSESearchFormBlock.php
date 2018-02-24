@@ -61,4 +61,10 @@ class GSESearchFormBlock extends BlockBase implements ContainerFactoryPluginInte
     return $this->formBuilder->getForm(SearchForm::class);
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return ['url'];
+  }
 }
